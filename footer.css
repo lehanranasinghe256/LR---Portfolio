@@ -1,0 +1,96 @@
+<style>
+/* â”€â”€â”€ FOOTER â”€â”€â”€ */
+.footer {
+  background: var(--bg2);
+  border-top: 1px solid var(--border);
+  padding: 2rem 0;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.footer-copy { font-size: 0.85rem; color: var(--text3); }
+.back-top {
+  width: 36px;
+  height: 36px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  color: var(--text2);
+  transition: var(--transition);
+}
+.back-top:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* â”€â”€â”€ ANIMATIONS â”€â”€â”€ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+@keyframes floatCard {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+@keyframes scrollAnim {
+  0% { transform: scaleX(0); transform-origin: left; }
+  50% { transform: scaleX(1); transform-origin: left; }
+  51% { transform: scaleX(1); transform-origin: right; }
+  100% { transform: scaleX(0); transform-origin: right; }
+}
+
+/* Intersection observer fade-in */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* â”€â”€â”€ RESPONSIVE â”€â”€â”€ */
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding-top: calc(var(--nav-h) + 2rem);
+  }
+  .hero-visual { width: 240px; height: 240px; }
+  .hero-actions { justify-content: center; }
+  .hero-scroll { justify-content: center; }
+  .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+}
+@media (max-width: 680px) {
+  h1 { font-size: 2.4rem; }
+  .nav-links { display: none; position: fixed; inset: var(--nav-h) 0 0 0; background: var(--bg); flex-direction: column; justify-content: center; align-items: center; gap: 2rem; z-index: 999; transition: var(--transition); }
+  .nav-links.open { display: flex; }
+  .nav-links a { font-size: 1.2rem; }
+  .nav-toggle { display: flex; z-index: 1001; }
+  .form-row { grid-template-columns: 1fr; }
+  .about-stats { flex-wrap: wrap; gap: 1.5rem; }
+  .footer-inner { flex-direction: column; text-align: center; }
+}
+</style>
