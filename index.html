@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lehan Ranasinghe — Portfolio</title>
+  <meta name="description" content="Personal portfolio — about me, roles, skills, projects, and contact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* HAMBURGER BUTTON */
+.menu-btn {
+    width: 50px;
+    cursor: pointer;
+    display: flex;
+    flex-direction:column;
+    gap: 0px;
+    position: fixed;
+    top: 15px;
+    right: 20px;
+    z-index: 1001;
+    padding: 8px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 10px;
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(-50px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.3), 0 1px 0 rgba(255,255,255,0.1) inset;
+}
+
+.menu-btn span {
+    height: 4px;
+    width: 100%;
+    background: white;
+    border-radius: 5px;
+    transition: 0.50s;
+}
+
+.mobile-menu {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(8,10,18,0.88);
+    backdrop-filter: blur(5px) saturate(190%);
+    -webkit-backdrop-filter: blur(5px) saturate(190%);
+    transition: top 1s ease;
+    z-index: 1000;
+
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+
+    overflow-y: auto;
+}
+
+/* SHOW MENU */
+.mobile-menu.active {
+    top: 0;
+}
+
+/* MENU LINKS */
+.mobile-menu a {
+    color: white;
+    text-decoration: none;
+    margin: 5px 0;
+    font-size: 25px;
+    transition: 0.10s;
+}
+
+.mobile-menu a:hover {
+    color: #5c55df;
+}
+.project-links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.project-links a {
+    text-align: center;
+    font-size: large;
+    color:bisque;
+}
+  </style>
+</head>
+<body>
+  <header>
+    <!-- HAMBURGER BUTTON -->
+    <div class="menu-btn" id="menuBtn">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+</header>
+<!-- MOBILE NAVIGATION -->
+<nav class="mobile-menu" id="mobileMenu">
+    <a href="#home">Home</a>
+    <a href="#about">About</a>
+    <a href="#projects">My Projects</a>
+    <a href="#roles">My Capabilities</a>
+    <a href="#skills">My Skills</a>
+    <a href="#contact">Contact Me</a><br><br>
+    <a href="teamwork.html">My Teamwork Skills</a>
+    <a href="management.html">My Management Skills</a>
+    <a href="academics.html">My Academic Skills</a>
+    <a href="behaviour.html">My Behaviours</a>
+    <a href="mywork.html">My Pathway</a>
+</nav>
+<!-- JAVASCRIPT -->
+<script>
+const menuBtn = document.getElementById("menuBtn");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuBtn.addEventListener("click", () => {
+
+    menuBtn.classList.toggle("active");
+    mobileMenu.classList.toggle("active");
+
+    // STOP BACKGROUND SCROLL
+    if (mobileMenu.classList.contains("active")) {
+        document.body.style.overflow = "hidden";
+    } else {
+        document.body.style.overflow = "auto";
+    }
+});
+
+/* CLOSE MENU WHEN A LINK IS CLICKED */
+const navLinks = mobileMenu.querySelectorAll("a");
+
+navLinks.forEach(link => {
+    link.addEventListener("click", () => {
+
+        mobileMenu.classList.remove("active");
+        menuBtn.classList.remove("active");
+
+        // ENABLE SCROLL AGAIN
+        document.body.style.overflow = "auto";
+    });
+});
+</script>
+  <!-- ═══════════ NAV ═══════════ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">L . Ranasinghe</a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#roles">Capabilities</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#work">My Pathway</a></li>
+        <li><a href="#contact">Contact Me</a></li>
+        <li><a href="cv.html" class="nav-cta" download>Download CV</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- ═══════════ HERO ═══════════ -->
+  <section id="home" class="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Welcome Visitor</div>
+      <h1 class="hero-name">Lehan Ranasinghe<span class="dot"></span></h1>
+      <p class="hero-sub">
+        I build things, and encourages you all to do so, while having an objective of 
+        generating employment opportunities and carrier shakedowns just for the people who
+        needs them the most in these courrier-less days <strong>So Read more about me and my workshops to take yourself an idea.</strong>
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+      <div class="hero-scroll">
+        <span>Hey, I'm Lehan Ranasinghe</span>
+        <div class="scroll-line"></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="avatar-ring">
+        <div class="avatar-inner">
+          <!-- Replace src with your actual photo -->
+          <div class="avatar-initials"><img src="me.jpg" alt="Myself"></div>
+        </div>
+        <div class="ring r1"></div>
+        <div class="ring r2"></div>
+        <div class="ring r3"></div>
+      </div>
+      <div class="floating-card fc1">
+        <span class="fc-icon">✦</span>
+        <span>Entrepreneur Mindset</span>
+      </div>
+      <div class="floating-card fc2">
+        <span class="fc-icon">◈</span>
+        <span>Projects Yet To Arrive</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ ABOUT ═══════════ -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-label">About Myself</div>
+      <div class="about-grid">
+        <div class="about-text">
+          <h2>Consider a Worker, Who Never Backs Down From a Work Until It's Finished, That's Me.</h2>
+          <p>
+            I am a motivated individual passionate about technology, entrepreneurship, and innovation. 
+            I enjoy creating meaningful digital solutions that solve real-world problems and contribute positively to the development of my country.
+             My goal is to combine creativity and technology to make a lasting impact on society while 
+             making benefit employement opportunities as well.
+          </p>
+          <p>
+            I take my education from the National Institute of Business management situated in Colombo 07, Sri Lanka.
+            My most favourable fact about my field of study is the way it interacts and helps people to be employeed and make
+            money fairly, so i want to creat a kind of impact which could make a change in the country and it's current economical
+            situations. So get to know about my ideas and plans while following through my accompliments in this site.
+          </p>
+          <div class="about-stats">
+            <div class="stat">
+              <span class="stat-num">0</span>
+              <span class="stat-label">Articles Yet Delivered</span>
+            </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <div class="stat">
+              <span class="stat-num">O</span>
+              <span class="stat-label">Projects Yet Delivered</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num"></span>
+              <span class="stat-label"></span>
+            </div>
+          </div>
+        </div>
+        <div class="about-aside">
+          <div class="info-card">
+            <h3>Quick Info About Me</h3><br>
+            <ul class="info-list">
+              <li>
+                <span class="info-key">Name</span>
+                <span class="info-val">Ranasinghe Arachchige Lehan Perera</span>
+              </li><br>
+              <li>
+                <span class="info-key">Location</span>
+                <span class="info-val">Kottawa, Sri Lanka</span>
+              </li><br>
+              <li>
+                <span class="info-key">Email</span>
+                <span class="info-val"><a href="mailto:you@example.com">lehanranasinghe256@gmail.com</a></span>
+              </li><br>
+              <li>
+                <span class="info-key">Languages</span>
+                <span class="info-val">English and Sinhala</span>
+              </li><br>
+              <li>
+                <span class="info-key">Status</span>
+                <span class="info-val available">1st Year Undergraduate</span>
+              </li><br>
+            </ul>
+            <li><a href="cv.html" class="nav-cta" download>Download CV</a></li>
+            </a><br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ SKILLS ═══════════ -->
+  <section id="roles" class="section section-dark">
+    <div class="container">
+      <div class="section-label">What I'm Capable</div>
+      <h2 class="section-title">My Skills &amp; Capabilities</h2>
+      <p class="section-sub">Read my skills below and if you though of applying them to your life, click and read.</p>
+      <div class="roles-grid">
+
+    <a href="teamwork.html" class="role-link">
+    <div class="role-card">
+    <div class="role-icon">⬡</div>
+       <h3>Teamworking Leadership</h3>
+    <p>
+      Most of my best abilities is teamwork. I collaborate with people and
+      encourage them to participate in projects so they can also learn,
+      improve, and gain experience together.
+    </p>
+    <div class="role-tags">
+      <span>#teamwork</span>
+      <span>#motivated</span>
+      <span>#education</span>
+      Read More >>
+    </div>
+  </div>
+</a>
+        <a href="management.html" class="role-link">
+        <div class="role-card">
+          <div class="role-icon">◎</div>
+          <h3>Leadership and Management</h3>
+          <p>Leadership is something we should earn and management is something we do after, read and understand from my own expressions written in words understandibly.
+          </p>
+          <div class="role-tags">
+            <span>#leadership</span>
+            <span>#managing</span>
+            <span>#education</span>
+            Read More >>
+      </div>
+    </div>
+</a>
+
+           <a href="academics.html" class="role-link">
+        <div class="role-card">
+          <div class="role-icon">◎</div>
+          <h3>Professional Academics</h3>
+          <p>I have various academic success, most of them're related on how i can speak and involve in English language work roles, understand how you can develop your's too.
+          </p><br>
+          <div class="role-tags">
+            <span>#speaking</span>
+            <span>#profession</span>
+            <span>#education</span>
+            Read More >>
+      </div>
+    </div>
+</a>
+
+        <a href="behaviour.html" class="role-link">
+        <div class="role-card">
+          <div class="role-icon">◎</div>
+          <h3>Behaviour and Character</h3>
+          <p>Your own behaviour and habbits can measure the kind of person you are, so having a good and bad image depends on you, read this and understand how to correct yourself
+</p><br>
+          <div class="role-tags">
+            <span>#speaking</span>
+            <span>#profession</span>
+            <span>#education</span>
+            Read More >>
+      </div>
+    </div>
+</a>
+  </section>
+
+  <!-- ═══════════ Personal Skills ═══════════ -->
+  <section id="skills" class="section">
+    <div class="container">
+      <div class="section-label">Skills</div>
+      <h2 class="section-title">Tools &amp; Technologies</h2>
+      <p class="section-sub">The stack I work with day-to-day.</p>
+      <div class="skills-categories">
+
+        <div class="skills-group">
+          <h4>Web &amp; Development Skills</h4>
+          <div class="skills-list">
+            <div class="skill-item">
+              <span class="skill-name">HTML 05</span>
+              <div class="skill-bar"><div class="skill-fill" style="--pct:90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">CSS</span>
+              <div class="skill-bar"><div class="skill-fill" style="--pct:80%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">PHP</span>
+              <div class="skill-bar"><div class="skill-fill" style="--pct:75%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">JavaScript</span>
+              <div class="skill-bar"><div class="skill-fill" style="--pct:50%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">MySQL</span>
+              <div class="skill-bar"><div class="skill-fill" style="--pct:90%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h4>Programming Skills</h4>
+          <div class="skills-list">
+            <div class="skill-item">
+              <span class="skill-name">C#</span>
+              <div class="skill-bar"><div class="skill-fill" style="--pct:90%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Python</span>
+              <div class="skill-bar"><div class="skill-fill" style="--pct:60%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Cisco Packet Tracer</span>
+              <div class="skill-bar"><div class="skill-fill" style="--pct:65%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">AI/ML</span>
+              <div class="skill-bar"><div class="skill-fill" style="--pct:40%"></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h4>Design &amp; Creativity Skills</h4>
+          <div class="skills-list">
+            <div class="skill-item">
+              <span class="skill-name">Canva</span>
+              <div class="skill-bar"><div class="skill-fill" style="--pct:95%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Photoshop</span>
+              <div class="skill-bar"><div class="skill-fill" style="--pct:55%"></div></div>
+            </div>
+            <div class="skill-item">
+              <span class="skill-name">Final-Cut Pro</span>
+              <div class="skill-bar"><div class="skill-fill" style="--pct:50%"></div></div>
+            </div>
+             <div class="skill-item">
+              <span class="skill-name">Logic pro</span>
+              <div class="skill-bar"><div class="skill-fill" style="--pct:30%"></div></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tools-cloud">
+        <span>MS Word</span>&nbsp;
+        <span>MS PowerPoint</span>&nbsp;
+        <span>MS Excel</span>&nbsp;
+        <span>Cisco</span>&nbsp;
+        <span>MySQL Workbench</span>&nbsp;
+        <span>VS Code</span>&nbsp;
+        <span>AI/ML</span>&nbsp;
+        <span>Code::Blocks</span>&nbsp;
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ PROJECTS ═══════════ -->
+  <section id="projects" class="section section-dark">
+    <div class="container">
+      <div class="section-label">Portfolio</div>
+      <h2 class="section-title">Selected Projects</h2>
+      <h4>--No Projects Out Yet, Once They Are, They'll Be Applied Here--</h4><br>
+      <p class="section-sub">A Curated Look At Work I'm Proud Of And Which You Will Find Helpful For Your Own Oneday.</hp>
+
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">All Categories</button>
+      </div>
+
+      <div class="projects-grid" id="projectsGrid">
+        <div class="project-card" data-cat="cat1">
+          <div class="project-num">01</div>
+          <div class="project-body">
+            <div class="project-tags"><span>Project Category - 01</span></span></div><br>
+            <h3> -- </h3>
+            <p>No Projects Available Yet, Once Projects are started and concluded, they'll be notified here</p>
+            <div class="project-links">
+              <!--<a href="#" target="_blank">Live Demo →</a>
+              <a href="#" target="_blank">GitHub →</a> -->
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-cat="cat1">
+          <div class="project-num">02</div>
+          <div class="project-body">
+            <div class="project-tags"><span>Project Category - 02</span></span></div><br>
+            <h3> -- </h3>
+            <p>No Projects Available Yet, Once Projects are started and concluded, they'll be notified here</p>
+            <div class="project-links">
+              <!--<a href="#" target="_blank">Live Demo →</a>
+              <a href="#" target="_blank">GitHub →</a> -->
+            </div>
+          </div>
+        </div>
+
+         <div class="project-card" data-cat="cat1">
+          <div class="project-num">03</div>
+          <div class="project-body">
+            <div class="project-tags"><span>Project Category - 03</span></span></div><br>
+            <h3> -- </h3>
+            <p>No Projects Available Yet, Once Projects are started and concluded, they'll be notified here</p>
+            <div class="project-links">
+              <!--<a href="#" target="_blank">Live Demo →</a>
+              <a href="#" target="_blank">GitHub →</a> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="project-card" data-cat="cat3">
+          <div class="project-num">04</div>
+          <div class="project-body">
+            <div class="project-tags"><span>Category 3</span></div>
+            <h3>Project Title Four</h3>
+            <p>A concise description of what this project is, what problem it solves, and what impact it had. Be proud of it.</p>
+            <div class="project-links">
+              <a href="#" target="_blank">Live Demo →</a>
+              <a href="#" target="_blank">GitHub →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-cat="cat2">
+          <div class="project-num">05</div>
+          <div class="project-body">
+            <div class="project-tags"><span>Category 2</span></div>
+            <h3>Project Title Five</h3>
+            <p>A concise description of what this project is, what problem it solves, and what impact it had. Be proud of it.</p>
+            <div class="project-links">
+              <a href="#" target="_blank">Live Demo →</a>
+              <a href="#" target="_blank">GitHub →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card" data-cat="cat3">
+          <div class="project-num">06</div>
+          <div class="project-body">
+            <div class="project-tags"><span>Category 3</span></div>
+            <h3>Project Title Six</h3>
+            <p>A concise description of what this project is, what problem it solves, and what impact it had. Be proud of it.</p>
+            <div class="project-links">
+              <a href="#" target="_blank">Live Demo →</a>
+              <a href="#" target="_blank">GitHub →</a>
+            </div>
+          </div>
+        </div> 
+      </div> 
+    </div> -->
+  </section> 
+
+  <!-- ===== My Work ===== -->
+  <section id="work" class="section section-dark">
+    <div class="container">
+      <div class="section-label">My Pathway</div>
+      <h2 class="section-title">Selected Accomplishments In My Path</h2>
+      <h4>A Few of my accomplishments in my pathway is showed below</h4><br>
+      <p class="section-sub">Take a look at my Success Stories Started From Me By Clicking the Link Below</hp>
+
+      <div class="projects-filter">
+        <button class="filter-btn active" data-filter="all">Take a Look and Read</button>
+      </div> 
+
+      <div class="projects-grid" id="projectsGrid">
+        <div class="project-card" data-cat="cat1">
+          <div class="project-num">Click</div>
+          <div class="project-body">
+            <h3> Press and Go through my Success pathways and stories.  </h3>
+            <p>Here I have menioned details from the start of my student life until my carrier goes on, updated regularly</p>
+            <div class="project-links">
+            <a href="mywork.html" target="_blank">Dive in →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  <!-- ═══════════ BLOG ═══════════ -->
+  <section id="blog" class="section">
+    <div class="container">
+      <div class="section-label">Writing</div>
+      <h2 class="section-title">Latest Articles</h2>
+      <h4>--No Articles Out Yet, Once They Are, They'll Be Applied Here--</h4><br>
+      <p class="section-sub">Thoughts, tutorials, and ideas I've put to paper.</p>
+      <div class="blog-grid">
+
+        <article class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-cat">Article 01</span>
+            <span class="blog-date">xxxxxx xx, xxxx</span>
+          </div>
+          <h3><a href="#">No Articles Out Yet</a></h3>
+          <p>Articles Help people by giving themselves extra knowledge of certain topics aby refering to what other person has said, once an article is
+            out read and apply it to your own topics as well</p>
+           <!-- <a href="#" class="blog-read">Read Article →</a> -->
+        </article>
+
+          <article class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-cat">Article 02</span>
+            <span class="blog-date">xxxxxx xx, xxxx</span>
+          </div>
+          <h3><a href="#">No Articles Out Yet</a></h3>
+          <p>Articles Help people by giving themselves extra knowledge of certain topics aby refering to what other person has said, once an article is
+            out read and apply it to your own topics as well</p>
+           <!-- <a href="#" class="blog-read">Read Article →</a> -->
+        </article>
+
+          <article class="blog-card">
+          <div class="blog-meta">
+            <span class="blog-cat">Article 03</span>
+            <span class="blog-date">xxxxxx xx, xxxx</span>
+          </div>
+          <h3><a href="#">No Articles Out Yet</a></h3>
+          <p>Articles Help people by giving themselves extra knowledge of certain topics aby refering to what other person has said, once an article is
+            out read and apply it to your own topics as well</p>
+           <!-- <a href="#" class="blog-read">Read Article →</a> -->
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════ CONTACT ═══════════ -->
+  <section id="contact" class="section section-dark">
+    <div class="container">
+      <div class="section-label">Contact Me Freely</div>
+      <h2 class="section-title">Let's Work Together</h2>
+      <p class="section-sub">Have a project in mind or just want to say hello? I'd love to hear from you.</p>
+
+      <div class="contact-grid">
+        <div class="contact-info">
+          <div class="contact-item">
+            <div class="contact-icon">✉</div>
+            <div>
+              <span class="contact-label">My Email</span>
+              <a href="mailto:lehanranasinghe256@gmail.com" class="contact-value">lehanranasinghe256@gmail.com</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">☎</div>
+            <div>
+              <span class="contact-label">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Phone</span>
+              <a href="tel:+94702699669" class="contact-value">+94702699669</a>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-icon">⌘</div>
+            <div>
+              <span class="contact-label">Location</span>
+              <span class="contact-value">Kottawa, Colombo, Sri Lanka</span>
+            </div>
+          </div>
+          <div class="social-links">
+            <a href="https://github.com/lehanranasinghe256" target="_blank" class="social-btn" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+            <a href="https://linkedin.com/in/lehanranasinghe" target="_blank" class="social-btn" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://www.instagram.com/itzunreal_256" target="_blank" class="social-btn" aria-label="Instagram">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M7.75 2C4.574 2 2 4.574 2 7.75v8.5C2 19.426 4.574 22 7.75 22h8.5C19.426 22 22 19.426 22 16.25v-8.5C22 4.574 19.426 2 16.25 2h-8.5zm0 2h8.5C18.322 4 20 5.678 20 7.75v8.5C20 18.322 18.322 20 16.25 20h-8.5C5.678 20 4 18.322 4 16.25v-8.5C4 5.678 5.678 4 7.75 4zm8.75 1a1.25 1.25 0 100 2.5 1.25 1.25 0 000-2.5zM12 7a5 5 0 100 10 5 5 0 000-10zm0 2a3 3 0 110 6 3 3 0 010-6z"/>
+              </svg>
+            </a>
+            </a>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" onsubmit="handleFormSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name:</label>
+              <input type="text" id="name" placeholder="Your full name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email:</label>
+              <input type="email" id="email" placeholder="your@email.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" placeholder="What's this about?" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary full-width" id="submitBtn">
+            Send Message →
+          </button>
+          <p class="form-note" id="formStatus"></p>
+        </form>
+      </div>
+    </div>
+    <script>
+function handleFormSubmit(event) {
+    event.preventDefault();
+
+    const submitBtn = document.getElementById("submitBtn");
+    const formStatus = document.getElementById("formStatus");
+
+    // Get input values
+    const name = document.getElementById("name").value;
+    const email = document.getElementById("email").value;
+    const subject = document.getElementById("subject").value;
+
+    // Change button text while "sending"
+    submitBtn.innerHTML = "Sending...";
+    submitBtn.disabled = true;
+
+    // Simulate sending process
+    setTimeout(() => {
+        formStatus.innerHTML = `
+            ✅ Thank you, <strong>${name}</strong>! 
+            Your message about "<strong>${subject}</strong>" has been sent successfully.
+        `;
+
+        formStatus.style.color = "#22c55e";
+
+        // Reset form
+        document.getElementById("contactForm").reset();
+
+        // Restore button
+        submitBtn.innerHTML = "Send Message →";
+        submitBtn.disabled = false;
+    }, 1500);
+}
+</script>
+  </section>
+
+  <!-- ═══════════ FOOTER ═══════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <a href="#home" class="nav-logo">L . Ranasinghe<span class="dot"></span></a>
+        <p class="footer-copy">© <span id="year"></span> Lehan Ranasinghe - Built with purpose.</p>
+        <a href="#home" class="back-top" aria-label="Back to top">↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
